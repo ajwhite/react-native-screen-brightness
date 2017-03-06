@@ -8,9 +8,14 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+
+#if __has_include(<React/RCTAssert.h>)
+// Use RN@0.40+ React headers
+#import <React/RCTBridgeModule.h>
+#else
+// Otherwise backward compatible support for <RN@0.40
 #import "RCTBridgeModule.h"
-#import "RCTBridge.h"
-#import "RCTEventDispatcher.h"
+#endif
 
 @interface ScreenBrightness : NSObject<RCTBridgeModule>
 
